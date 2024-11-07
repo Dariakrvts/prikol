@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Мой сайт</title>
+  <script>
+    // Функция для загрузки HTML файла и вставки его содержимого в указанный элемент
+    function loadHTML(elementId, filePath) {
+      fetch(filePath)
+        .then(response => response.text())
+        .then(data => document.getElementById(elementId).innerHTML = data)
+        .catch(error => console.log('Ошибка загрузки:', error));
+    }
+    
+    // Загрузка хедера, контента и футера при загрузке страницы
+    window.onload = function() {
+      loadHTML('header', 'header.html');
+      loadHTML('content', 'body.html');
+      loadHTML('footer', 'footer.html');
+    };
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <div id="body"></div>
+  <div id="footer"></div>
+</body>
+</html>
